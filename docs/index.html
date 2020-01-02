@@ -3,8 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <title>KKBOX Hackathon Charts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <script src="./utils.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
 </head>
 <body>
-
+<div style="width: 100%">
+    <canvas id="canvas"></canvas>
+</div>
+<!--button id="randomizeData">Randomize Data</button>-->
+<script>
+    var barChartData = {
+        labels: ['作品一', '作品二', '作品三', '作品四', '作品五', '作品六', '作品七', '作品八', '作品九', '作品十', '作品十一', '作品十二'],
+        datasets: [{
+            label: '投票期間每日不重複登入人數總和分數',
+            backgroundColor: window.chartColors.red,
+            stack: 'Stack 0',
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+            ]
+        }, {
+            label: 'GitHub Stars 分數',
+            backgroundColor: window.chartColors.blue,
+            stack: 'Stack 0',
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+            ]
+        }, {
+            label: '得票分數',
+            backgroundColor: window.chartColors.green,
+            stack: 'Stack 0',
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor()
+            ]
+        }]
+    };
+    window.onload = function () {
+        var ctx = document.getElementById('canvas').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                title: {
+                    display: true,
+                    text: 'KKBOX Hackathon Online 2020 排名(上次更新時間 2020/1/15 15:00)'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+            }
+        });
+    };
+    /*
+    document.getElementById('randomizeData').addEventListener('click', function () {
+        barChartData.datasets.forEach(function (dataset) {
+            dataset.data = dataset.data.map(function () {
+                return randomScalingFactor();
+            });
+        });
+        window.myBar.update();
+    });
+     */
+</script>
 </body>
 </html>
