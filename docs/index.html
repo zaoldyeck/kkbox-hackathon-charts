@@ -21,13 +21,13 @@
 </div>
 <script>
     const dlu = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
+    const votes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     const repos = ['ianchen0119/MusicTogether-public',
         '',
         'imkouyo/kk-hack',
-        ''];
-
-    const votes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        '',
+        'yum650350/novinyl'];
+    const names = ['1. 一起聽音樂', '2. kktube', '3. kk-whisper', '4. 歌，聽的是回憶。Bro.Music', '5. NOVIYL - 黑膠'];
 
     function getRepoStarCount(repoName) {
         if (repoName === '') {
@@ -42,7 +42,7 @@
     window.onload = function () {
         Promise.all(repos.map(repo => getRepoStarCount(repo))).then(repoStarCounts => {
             const barChartData = {
-                labels: ['1. 一起聽音樂', '2. kktube', '3. kk-whisper', '4. 歌，聽的是回憶。Bro.Music', '作品五', '作品六', '作品七', '作品八', '作品九', '作品十', '作品十一', '作品十二'],
+                labels: names,
                 datasets: [{
                     label: '票選期間每日不重複登入人數總和得分',
                     backgroundColor: window.chartColors.red,
