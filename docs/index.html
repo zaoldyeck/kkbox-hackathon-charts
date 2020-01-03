@@ -20,6 +20,7 @@
     <canvas id="canvas"></canvas>
 </div>
 <script>
+    const laseUpdateTime = '2020/01/07 12:00';
     const dlu = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     const votes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     const repos = ['ianchen0119/MusicTogether-public',
@@ -68,7 +69,7 @@
                 options: {
                     title: {
                         display: true,
-                        text: 'KKBOX Hackathon Online 2020 Charts（最後更新時間 2020/1/15 15:00）'
+                        text: `KKBOX Hackathon Online 2020 Charts（最後更新時間 ${laseUpdateTime}）`
                     },
                     tooltips: {
                         mode: 'index',
