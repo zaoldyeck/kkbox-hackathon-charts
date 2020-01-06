@@ -20,15 +20,16 @@
     <canvas id="canvas"></canvas>
 </div>
 <script>
-    const laseUpdateTime = '2020/01/07 12:00';
+    const lastUpdateTime = '2020/01/06 12:00';
     const dlu = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     const votes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     const repos = ['ianchen0119/MusicTogether-public',
         '',
         'imkouyo/kk-hack',
         '',
-        'yum650350/novinyl'];
-    const names = ['1. 一起聽音樂', '2. kktube', '3. kk-whisper', '4. 歌，聽的是回憶。Bro.Music', '5. NOVIYL - 黑膠'];
+        'yum650350/novinyl',
+        'Tzuhui/kkbox-api-leaf-radio'];
+    const names = ['1. 一起聽音樂', '2. kktube', '3. kk-whisper', '4. 歌，聽的是回憶。Bro.Music', '5. NOVIYL - 黑膠', '6. Leaf Radio'];
 
     function getRepoStarCount(repoName) {
         if (repoName === '') {
@@ -69,7 +70,7 @@
                 options: {
                     title: {
                         display: true,
-                        text: `KKBOX Hackathon Online 2020 Charts（最後更新時間 ${laseUpdateTime}）`
+                        text: `KKBOX Hackathon Online 2020 Charts（最後更新時間 ${lastUpdateTime}）`
                     },
                     tooltips: {
                         mode: 'index',
