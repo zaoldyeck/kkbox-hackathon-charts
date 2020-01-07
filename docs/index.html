@@ -20,8 +20,8 @@
     <canvas id="canvas"></canvas>
 </div>
 <script>
-    const lastUpdateTime = '2020/01/07 16:30';
-    const dlu = [75, 0, 18, 21, 0, 0, 0];
+    const lastUpdateTime = '2020/01/07 18:00';
+    const dlu = [78, 0, 18, 21, 0, 0, 0];
     const votes = [11, 1, 4, 6, 3, 8, 5];
     const repos = ['ianchen0119/MusicTogether-public',
         '',
@@ -65,7 +65,7 @@
             };
 
             const ctx = document.getElementById('canvas').getContext('2d');
-            window.myBar = new Chart(ctx, {
+            const myBar = new Chart(ctx, {
                 type: 'bar',
                 data: barChartData,
                 options: {
@@ -84,6 +84,41 @@
                         },
                         y: {
                             stacked: true
+                        }
+                    },
+                    onClick: function (e, data) {
+                        const base = myBar.chartArea.bottom;
+                        const width = myBar.chart.scales['x-axis-0'].width;
+                        if (e.pageY > base) {
+                            const count = myBar.scales['x-axis-0'].ticks.length;
+                            const padding_left = myBar.scales['x-axis-0'].paddingLeft;
+                            const padding_right = myBar.scales['x-axis-0'].paddingRight;
+                            const xwidth = (width - padding_left - padding_right) / count;
+                            // don't call for padding areas
+                            let bar_index = (e.offsetX - padding_left - myBar.scales['y-axis-0'].width) / xwidth;
+                            if (bar_index > 0 && bar_index < count) {
+                                bar_index = Math.floor(bar_index);
+                                switch (bar_index) {
+                                    case 0:
+                                        window.open('https://ianchen0119.github.io/musictogether/', '_blank');
+                                        break;
+                                    case 1:
+                                        window.open('https://richardliao.gitlab.io/interview-music-platform', '_blank');
+                                        break;
+                                    case 2:
+                                        window.open('http://ableave.com', '_blank');
+                                        break;
+                                    case 3:
+                                        window.open('https://guoyanting0919.github.io/kkboxweb', '_blank');
+                                        break;
+                                    case 4:
+                                        window.open('https://novon.cc/novinyl', '_blank');
+                                        break;
+                                    case 5:
+                                        window.open('https://tzuhui.github.io/kkbox-api-leaf-radio/', '_blank');
+                                        break;
+                                }
+                            }
                         }
                     }
                 }
