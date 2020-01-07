@@ -20,16 +20,17 @@
     <canvas id="canvas"></canvas>
 </div>
 <script>
-    const lastUpdateTime = '2020/01/06 12:00';
-    const dlu = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    const votes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const lastUpdateTime = '2020/01/07 12:00';
+    const dlu = [6, 0, 0, 0, 0, 0, 0];
+    const votes = [0, 0, 0, 0, 0, 0, 0];
     const repos = ['ianchen0119/MusicTogether-public',
         '',
         'imkouyo/kk-hack',
         '',
         'yum650350/novinyl',
-        'Tzuhui/kkbox-api-leaf-radio'];
-    const names = ['1. 一起聽音樂', '2. kktube', '3. kk-whisper', '4. 歌，聽的是回憶。Bro.Music', '5. NOVIYL - 黑膠', '6. Leaf Radio'];
+        'Tzuhui/kkbox-api-leaf-radio',
+        'a2975667/KKMAP'];
+    const names = ['1. 一起聽音樂', '2. kktube', '3. kk-whisper', '4. 歌，聽的是回憶。Bro.Music', '5. NOVIYL - 黑膠', '6. Leaf Radio', '7. KKMap'];
 
     function getRepoStarCount(repoName) {
         if (repoName === '') {
